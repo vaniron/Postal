@@ -450,16 +450,17 @@ function Postal:SendMail()
 			self.hooks["ClickSendMailItemButton"].orig()
 
 			local name, _, count = GetSendMailItem()
-
 			if not name then 
 				Postal:Print("Postal: An error occured in POSTAL. This might be related to lag, trying to send items with an item placed in the normal send mail window, or trying to send items that cannot be sent.", 1, 0, 0)
 				PostalGlobalFrame:Hide()
 				return
 			end
+			subject = this.subject or (name .. " (" .. count .. ")")
 		end
 
 		if this.first then
 			this.first = false
+			Postal:Print("Postal: Sending mail to " .. this.to .. ".", 1, 1, 0)
 
 			if this.money then
 				if this.cod then

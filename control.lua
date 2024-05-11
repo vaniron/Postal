@@ -12,8 +12,8 @@ function Postal.control.on_event()
 end
 
 function Postal.control.on_update()
-	event_listeners = Postal.util.set_filter(event_listeners, function(l) return not l.deleted end)
-	update_listeners = Postal.util.set_filter(update_listeners, function(l) return not l.deleted end)
+	-- event_listeners = Postal.util.set_filter(event_listeners, function(l) return not l.deleted end)
+	-- update_listeners = Postal.util.set_filter(update_listeners, function(l) return not l.deleted end)
 	
 	for listener, _ in pairs(update_listeners) do
 		if not listener.deleted then
@@ -46,6 +46,7 @@ function Postal.control.event_listener(event, action)
 		if not Postal.util.any(event_listeners, function(l) return l.event == event end) then
 			PostalControlFrame:UnregisterEvent(event)
 		end
+		-- Postal.util.set_remove(event_listeners, listener)
 		return self
 	end
 	
@@ -68,6 +69,7 @@ function Postal.control.update_listener(action)
 	
 	function self.stop()
 		listener.deleted = true
+		-- Postal.util.set_remove(update_listeners, listener)
 		return self
 	end
 	

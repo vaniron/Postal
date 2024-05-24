@@ -242,7 +242,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 		<Anchors>
 			<Anchor relativePoint="TOP" point="RIGHT">
 				<Offset>
-					<AbsDimension x="5" y="-53"/>
+					<AbsDimension x="5" y="-60"/>
 				</Offset>
 			</Anchor>
 		</Anchors>
@@ -259,7 +259,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 		<Anchors>
 			<Anchor relativePoint="TOP" point="LEFT">
 				<Offset>
-					<AbsDimension x="10" y="-53"/>
+					<AbsDimension x="10" y="-60"/>
 				</Offset>
 			</Anchor>
 		</Anchors>
@@ -269,7 +269,42 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 			</OnClick>
 		</Scripts>
 	</Button>
-	
+
+	<Button name="PostalInboxReturnSelected" parent="InboxFrame" inherits="UIPanelButtonTemplate" text="Return Selected">
+		<Size>
+			<AbsDimension x="120" y="20"/>
+		</Size>
+		<Anchors>
+			<Anchor relativePoint="TOP" point="RIGHT">
+				<Offset>
+					<AbsDimension x="5" y="-33"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Scripts>
+			<OnClick>
+				Postal_Inbox_ReturnSelected()
+			</OnClick>
+		</Scripts>
+	</Button>
+	<Button name="PostalInboxReturnAllButton" parent="InboxFrame" inherits="UIPanelButtonTemplate" text="Return All">
+		<Size>
+			<AbsDimension x="120" y="20"/>
+		</Size>
+		<Anchors>
+			<Anchor relativePoint="TOP" point="LEFT">
+				<Offset>
+					<AbsDimension x="10" y="-33"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Scripts>
+			<OnClick>
+				Postal_Inbox_ReturnSelected(true)
+			</OnClick>
+		</Scripts>
+	</Button>
+
 	<Frame name="PostalGlobalFrame" parent="UIParent" hidden="true">
 		<Scripts>
 			<OnUpdate>

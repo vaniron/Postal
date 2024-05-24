@@ -460,7 +460,7 @@ function Postal:SendMail()
 
 		if this.first then
 			this.first = false
-			Postal:Print("Postal: Sending mail to " .. this.to .. ".", 1, 1, 0)
+			Postal:Print("Postal: Sending mail to |cff00ff00" .. this.to .. "|r.", 1, 1, 0)
 
 			if this.money then
 				if this.cod then
@@ -591,7 +591,28 @@ function Postal_Inbox_OpenSelected(open_all)
 	end
 	PostalInboxFrame.opening = true
 	Postal:Inbox_DisableClicks()
-	Postal.open.start(selected, function()
+	Postal.open.start(false,selected, function()
+		PostalInboxFrame.opening = false
+		Postal:Inbox_DisableClicks()
+	end)
+	Postal_SelectedItems = {}
+end
+
+function Postal_Inbox_ReturnSelected(return_all)
+	local selected = {}
+	if return_all then
+		for i = 1, GetInboxNumItems() do
+			tinsert(selected, i)
+		end
+	else
+		for _, i in Postal_SelectedItems do
+			tinsert(selected, i)
+		end
+		sort(selected)
+	end
+	PostalInboxFrame.opening = true
+	Postal:Inbox_DisableClicks()
+	Postal.open.start(true,selected, function()
 		PostalInboxFrame.opening = false
 		Postal:Inbox_DisableClicks()
 	end)

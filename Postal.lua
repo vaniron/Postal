@@ -22,16 +22,24 @@ function Postal:OnInitialize()
 		getglobal("MailItem" .. i):SetWidth(280)
 	end
 
-	ATTACHMENTS_MAX = 21
-	ATTACHMENTS_PER_ROW_SEND = 7
-	ATTACHMENTS_MAX_ROWS_SEND = 3
-
 	Postal_SelectedItems = {}
 
 	PostalTooltip:SetOwner(WorldFrame, 'ANCHOR_NONE')
 end
 
+local init = false
 function Postal:SendMailFrame_Update()
+
+	if not init then
+		ATTACHMENTS_PER_ROW_SEND = 7
+		ATTACHMENTS_MAX_ROWS_SEND = 6
+		ATTACHMENTS_MAX = ATTACHMENTS_MAX_ROWS_SEND * ATTACHMENTS_PER_ROW_SEND
+
+		for i=1,ATTACHMENTS_MAX do
+			CreateFrame("Button","PostalAttachment"..i,getglobal("SendMailFrame"),"PostalAttachment")
+		end
+		init = true
+	end
 
 	MoneyFrame_Update('SendMailCostMoneyFrame', GetSendMailPrice() * max(1, self:GetNumMails()))
 

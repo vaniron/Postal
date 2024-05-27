@@ -177,7 +177,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 		</Scripts>
 		<HighlightTexture alphaMode="ADD" file="Interface\Buttons\ButtonHilight-Square"/>
 	</Button>
-
+<!-- 
 	<Button name="PostalAttachment1" parent="SendMailFrame" inherits="PostalAttachment"/>
 	<Button name="PostalAttachment2" parent="SendMailFrame" inherits="PostalAttachment"/>
 	<Button name="PostalAttachment3" parent="SendMailFrame" inherits="PostalAttachment"/>
@@ -199,6 +199,20 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 	<Button name="PostalAttachment19" parent="SendMailFrame" inherits="PostalAttachment"/>
 	<Button name="PostalAttachment20" parent="SendMailFrame" inherits="PostalAttachment"/>
 	<Button name="PostalAttachment21" parent="SendMailFrame" inherits="PostalAttachment"/>
+	<Button name="PostalAttachment22" parent="SendMailFrame" inherits="PostalAttachment"/>
+	<Button name="PostalAttachment23" parent="SendMailFrame" inherits="PostalAttachment"/>
+	<Button name="PostalAttachment24" parent="SendMailFrame" inherits="PostalAttachment"/>
+	<Button name="PostalAttachment25" parent="SendMailFrame" inherits="PostalAttachment"/>
+	<Button name="PostalAttachment26" parent="SendMailFrame" inherits="PostalAttachment"/>
+	<Button name="PostalAttachment27" parent="SendMailFrame" inherits="PostalAttachment"/>
+	<Button name="PostalAttachment28" parent="SendMailFrame" inherits="PostalAttachment"/>
+	<Button name="PostalAttachment29" parent="SendMailFrame" inherits="PostalAttachment"/>
+	<Button name="PostalAttachment30" parent="SendMailFrame" inherits="PostalAttachment"/>
+	<Button name="PostalAttachment31" parent="SendMailFrame" inherits="PostalAttachment"/>
+	<Button name="PostalAttachment32" parent="SendMailFrame" inherits="PostalAttachment"/>
+	<Button name="PostalAttachment33" parent="SendMailFrame" inherits="PostalAttachment"/>
+	<Button name="PostalAttachment34" parent="SendMailFrame" inherits="PostalAttachment"/>
+	<Button name="PostalAttachment35" parent="SendMailFrame" inherits="PostalAttachment"/> -->
 
 	<Frame name="PostalFrame" parent="MailFrame" hidden="true">
 		<Size>

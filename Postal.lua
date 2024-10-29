@@ -2,6 +2,9 @@ Postal = AceLibrary("AceAddon-2.0"):new("AceEvent-2.0", "AceHook-2.0")
 
 function Postal:OnInitialize()
 
+	-- redefine this awful default message
+	ERR_MAIL_REACHED_CAP = "The person you're sending to has a full inbox."
+
 	-- Allows the mail frame to be pushed
 	if UIPanelWindows["MailFrame"] then
 		UIPanelWindows["MailFrame"].pushable = 1

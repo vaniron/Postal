@@ -1,8 +1,12 @@
-﻿## Interface: 11200
-## Version: 1.0
+## Interface: 11200
+
 ## Title: Postal
 ## Notes: Postal
 ## Author: shirsig
+## Version: 1.0
+## X-Category: Chat
+## X-Website: https://github.com/vaniron/Postal
+
 ## OptionalDeps: Ace2
 libs\AceLibrary\AceLibrary.lua
 libs\AceOO\AceOO-2.0.lua

@@ -298,6 +298,10 @@ function Postal:AttachItem(bag, slot)
 				return
 			end
 
+			-- Reset PostalFrame.bag and PostalFrame.slot for this attachment
+			PostalFrame.bag = bag
+			PostalFrame.slot = slot
+
 			self.hooks["PickupContainerItem"].orig(bag, slot)
 			self:AttachmentButton_OnClick(getglobal("PostalAttachment" .. i))
 			return
@@ -306,7 +310,7 @@ function Postal:AttachItem(bag, slot)
 end
 
 function Postal:UseContainerItem(bag, slot)
-	if IsShiftKeyDown() or IsControlKeyDown() or IsAltKeyDown() then
+	if IsControlKeyDown() or IsAltKeyDown() then
 		return self.hooks["UseContainerItem"].orig(bag, slot)
 	end
 
@@ -318,7 +322,22 @@ function Postal:UseContainerItem(bag, slot)
 		PostalFrame.slot = slot
 	end
 	if SendMailFrame:IsVisible() and not CursorHasItem() then
-		self:AttachItem(bag, slot)
+		if IsShiftKeyDown() then
+			local originalItemLink = GetContainerItemLink(PostalFrame.bag, PostalFrame.slot)
+			if originalItemLink then
+				for bagID = 0, NUM_BAG_SLOTS do
+					local numSlots = GetContainerNumSlots(bagID)
+					for slotID = 1, numSlots do
+						local itemLink = GetContainerItemLink(bagID, slotID)
+						if itemLink and itemLink == originalItemLink then
+							self:AttachItem(bagID, slotID)
+						end
+					end
+				end
+			end
+		else
+			self:AttachItem(bag, slot)
+		end
 		return
 	elseif TradeFrame:IsVisible() and not CursorHasItem() then
 		for i = 1, 6 do

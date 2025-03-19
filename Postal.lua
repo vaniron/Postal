@@ -330,7 +330,9 @@ function Postal:UseContainerItem(bag, slot)
 					for slotID = 1, numSlots do
 						local itemLink = GetContainerItemLink(bagID, slotID)
 						if itemLink and itemLink == originalItemLink then
-							self:AttachItem(bagID, slotID)
+							if not (self:SelectedAttachment(bagID, slotID) or self:QueuedAttachment(bagID, slotID)) then
+								self:AttachItem(bagID, slotID)
+							end
 						end
 					end
 				end
